@@ -28,7 +28,7 @@ const Player = ({ player, setPlayerState }) => {
 
   const handleScoreChange = e => {
     e.stopPropagation()
-    e.target.classList.add(styles.animateScoreButton)
+    // e.target.classList.add(styles.animateScoreButton)
 
     if (e.target.name === 'minus') {
       // e.target.style.transform = 'rotate(-90deg)'
@@ -41,7 +41,7 @@ const Player = ({ player, setPlayerState }) => {
     }
 
     setTimeout(() => {
-      e.target.classList.remove(styles.animateScoreButton)
+      // e.target.classList.remove(styles.animateScoreButton)
       // e.target.style.transform = ''
     }, 300)
   }
