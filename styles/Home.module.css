@@ -17,14 +17,16 @@
 }
 
 .formInput {
+  -webkit-appearance: none;
   position: absolute;
   align-self: center;
   width: 100%;
   height: 100%;
-  border: none;
   padding: 0 0.5rem;
   font-size: 1rem;
+  border: none;
   border-bottom: 1px solid grey;
+  border-radius: none;
 }
 
 .submitButton {

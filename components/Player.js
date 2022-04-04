@@ -30,10 +30,6 @@ const Player = ({ player, setPlayerState }) => {
     e.stopPropagation()
     e.target.children[0].style.transform = 'rotateZ(90deg)'
 
-    setTimeout(() => {
-      e.target.children[0].style.transform = ''
-    }, 300)
-
     if (e.target.name === 'minus') {
       setPlayerState(player.id, { score: changeScore(player.score - 1) })
     }
@@ -41,12 +37,15 @@ const Player = ({ player, setPlayerState }) => {
     if (e.target.name === 'plus') {
       e.target.children[1].style.transform = 'rotateZ(180deg)'
 
-      setTimeout(() => {
-        e.target.children[1].style.transform = ''
-      }, 300)
-
       setPlayerState(player.id, { score: changeScore(player.score + 1) })
     }
+
+    setTimeout(() => {
+      if (e.target.children[1]) {
+        e.target.children[1].style.transform = ''
+      }
+      e.target.children[0].style.transform = ''
+    }, 300)
   }
 
   return (
