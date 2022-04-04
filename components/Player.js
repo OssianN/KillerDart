@@ -69,7 +69,7 @@ const Player = ({ player, setPlayerState }) => {
           name="minus"
           onClick={handleScoreChange}
         >
-          <span className={styles.scoreByttonSpan}></span>
+          <span className={styles.scoreButtonSpan}></span>
         </button>
 
         <div className={styles.dartContainer}>
@@ -96,8 +96,8 @@ const Player = ({ player, setPlayerState }) => {
           name="plus"
           onClick={handleScoreChange}
         >
-          <span className={styles.scoreByttonSpan}></span>
-          <span className={styles.scoreByttonSpan}></span>
+          <span className={styles.scoreButtonSpan}></span>
+          <span className={styles.scoreButtonSpan}></span>
         </button>
       </div>
     </li>

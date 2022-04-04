@@ -96,7 +96,7 @@
 
 .dartImageAnimation {
   animation: dartImage;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 
 .scoreButton {
@@ -111,7 +111,7 @@
   justify-content: center;
 }
 
-.scoreByttonSpan {
+.scoreButtonSpan {
   height: 2.5px;
   width: 15px;
   border-radius: 20px;
@@ -123,7 +123,7 @@
   pointer-events: none;
 }
 
-.scoreByttonSpan:nth-child(2) {
+.scoreButtonSpan:nth-child(2) {
   transform: rotateZ(90deg);
 }
 

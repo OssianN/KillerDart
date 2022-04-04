@@ -19,6 +19,10 @@ a {
   list-style: none;
 }
 
+button {
+  -webkit-tap-highlight-color: #00000000;
+}
+
 input:focus {
   outline: none;
 }
