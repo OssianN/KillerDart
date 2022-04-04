@@ -73,7 +73,8 @@ const Player = ({ player, setPlayerState }) => {
               >
                 <Image
                   className={styles.dartImage}
-                  style={{ opacity: player.score <= i ? 0.2 : 1 }}
+                  layout="fill"
+                  style={{ opacity: player.score <= i ? 0.1 : 1 }}
                   src={dart}
                   alt="dart"
                 />

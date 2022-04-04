@@ -94,11 +94,13 @@
 .dartImageContainer {
   position: relative;
   width: 1.6rem;
+  height: 1.6rem;
+  will-change: transform;
 }
 
 .dartImage {
   object-fit: contain;
-  /* filter: invert(1); */
+  filter: invert(1);
 }
 
 .dartImageAnimation {
