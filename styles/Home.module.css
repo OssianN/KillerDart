@@ -160,7 +160,7 @@
 
 @keyframes dartImage {
   0% {
-    transform: scale(1);
+    transform: scale(1.2);
   }
 
   50% {

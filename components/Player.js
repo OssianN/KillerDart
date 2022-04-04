@@ -28,21 +28,18 @@ const Player = ({ player, setPlayerState }) => {
 
   const handleScoreChange = e => {
     e.stopPropagation()
-    // e.target.classList.add(styles.animateScoreButton)
+    e.target.classList.add(styles.animateScoreButton)
 
     if (e.target.name === 'minus') {
-      // e.target.style.transform = 'rotate(-90deg)'
       setPlayerState(player.id, { score: changeScore(player.score - 1) })
     }
 
     if (e.target.name === 'plus') {
-      // e.target.style.transform = 'rotate(90deg)'
       setPlayerState(player.id, { score: changeScore(player.score + 1) })
     }
 
     setTimeout(() => {
-      // e.target.classList.remove(styles.animateScoreButton)
-      // e.target.style.transform = ''
+      e.target.classList.remove(styles.animateScoreButton)
     }, 300)
   }
 
