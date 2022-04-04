@@ -105,7 +105,7 @@
 }
 
 .dartImageAnimation {
-  animation: dartImage;
+  animation: dartImage ease;
   animation-duration: 0.3s;
 }
 
