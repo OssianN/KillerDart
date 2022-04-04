@@ -30,12 +30,18 @@ const Player = ({ player, setPlayerState }) => {
     e.stopPropagation()
 
     if (e.target.name === 'minus') {
+      e.target.style.transform = 'rotate(-90deg)'
       setPlayerState(player.id, { score: changeScore(player.score - 1) })
     }
 
     if (e.target.name === 'plus') {
+      e.target.style.transform = 'rotate(90deg)'
       setPlayerState(player.id, { score: changeScore(player.score + 1) })
     }
+
+    setTimeout(() => {
+      e.target.style.transform = ''
+    }, 300)
   }
 
   return (
@@ -71,15 +77,13 @@ const Player = ({ player, setPlayerState }) => {
                 }`}
                 key={i}
               >
-                {player.score > i && (
-                  <Image
-                    className={styles.dartImage}
-                    layout="fill"
-                    // style={{ opacity: player.score <= i ? 0.1 : 1 }}
-                    src={dart}
-                    alt="dart"
-                  />
-                )}
+                <Image
+                  className={styles.dartImage}
+                  layout="fill"
+                  style={{ opacity: player.score <= i ? 0.1 : 1 }}
+                  src={dart}
+                  alt="dart"
+                />
               </div>
             )
           })}

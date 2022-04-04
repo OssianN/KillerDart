@@ -104,7 +104,7 @@
 }
 
 .dartImageAnimation {
-  animation: dartImage;
+  animation: dartImage ease-in-out;
   animation-duration: 0.5s;
 }
 
@@ -118,6 +118,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  transition: 0.3s ease-in-out;
 }
 
 .scoreButtonSpan {
@@ -154,6 +155,10 @@
 
 @keyframes dartImage {
   0% {
+    transform: scale(1);
+  }
+
+  50% {
     transform: scale(1.5);
   }
 
