@@ -104,8 +104,8 @@
 }
 
 .dartImageAnimation {
-  animation: dartImage ease-out;
-  animation-duration: 0.3s;
+  animation: dartImage;
+  animation-duration: 0.2s;
 }
 
 .scoreButton {
