@@ -71,13 +71,15 @@ const Player = ({ player, setPlayerState }) => {
                 }`}
                 key={i}
               >
-                <Image
-                  className={styles.dartImage}
-                  layout="fill"
-                  style={{ opacity: player.score <= i ? 0.1 : 1 }}
-                  src={dart}
-                  alt="dart"
-                />
+                {player.score > i && (
+                  <Image
+                    className={styles.dartImage}
+                    layout="fill"
+                    // style={{ opacity: player.score <= i ? 0.1 : 1 }}
+                    src={dart}
+                    alt="dart"
+                  />
+                )}
               </div>
             )
           })}
