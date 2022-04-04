@@ -38,9 +38,9 @@ const Home = () => {
 
   return (
     <main className={styles.container}>
-      <GameSettings setPlayers={setPlayers} />
       <PlayersList players={players} setPlayerState={setPlayerState} />
       <Form setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
+      <GameSettings setPlayers={setPlayers} />
     </main>
   )
 }
