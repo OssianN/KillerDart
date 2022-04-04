@@ -123,8 +123,8 @@
 }
 
 .animateScoreButton {
-  animation: scoreButton ease-out;
-  animation-duration: 0.3s;
+  /* animation: scoreButton ease-out;
+  animation-duration: 0.3s; */
 }
 
 .scoreButtonSpan {
