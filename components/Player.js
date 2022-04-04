@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import dart from '../dart.png'
+// import dart from '../dart.png'
 import styles from '../styles/Home.module.css'
 
 const Player = ({ player, setPlayerState }) => {
@@ -76,11 +76,10 @@ const Player = ({ player, setPlayerState }) => {
                 }`}
                 key={i}
               >
-                <Image
+                <img
                   className={styles.dartImage}
-                  layout="fill"
                   style={{ opacity: player.score <= i ? 0.1 : 1 }}
-                  src={dart}
+                  src="/dart.png"
                   alt="dart"
                 />
               </div>

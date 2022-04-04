@@ -101,6 +101,7 @@
 .dartImage {
   object-fit: contain;
   filter: invert(1);
+  width: 100%;
 }
 
 .dartImageAnimation {
