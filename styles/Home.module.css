@@ -118,6 +118,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  touch-action: manipulation;
 }
 
 .animateScoreButton {
