@@ -105,7 +105,7 @@
 
 .dartImageAnimation {
   animation: dartImage;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
 }
 
 .scoreButton {
@@ -163,7 +163,7 @@
   }
 
   50% {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
 
   100% {
@@ -176,11 +176,7 @@
     transform: rotate(0deg);
   }
 
-  50% {
-    transform: rotate(90deg);
-  }
-
   100% {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
   }
 }
