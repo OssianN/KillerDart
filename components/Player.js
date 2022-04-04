@@ -29,11 +29,9 @@ const Player = ({ player, setPlayerState }) => {
   const handleScoreChange = e => {
     e.stopPropagation()
     e.target.children[0].style.transform = 'rotateZ(90deg)'
-    e.target.children[1]?.style.transform = 'rotateZ(180deg)'
 
     setTimeout(() => {
       e.target.children[0].style.transform = ''
-      e.target.children[1]?.style.transform = ''
     }, 300)
 
     if (e.target.name === 'minus') {
@@ -41,6 +39,12 @@ const Player = ({ player, setPlayerState }) => {
     }
 
     if (e.target.name === 'plus') {
+      e.target.children[1].style.transform = 'rotateZ(180deg)'
+
+      setTimeout(() => {
+        e.target.children[1].style.transform = ''
+      }, 300)
+
       setPlayerState(player.id, { score: changeScore(player.score + 1) })
     }
   }
@@ -55,7 +59,7 @@ const Player = ({ player, setPlayerState }) => {
         <input
           className={styles.playerTargetInput}
           name="number"
-          onChange={(e) => setPlayerState(player.id, { number: e.target.value })}
+          onChange={e => setPlayerState(player.id, { number: e.target.value })}
           value={player.number}
           type="number"
         />
