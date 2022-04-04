@@ -28,24 +28,19 @@ const Player = ({ player, setPlayerState }) => {
 
   const handleScoreChange = e => {
     e.stopPropagation()
-    e.target.children[0].style.transform = 'rotateZ(90deg)'
+    e.target.style.transform = 'rotateZ(180deg)'
 
     if (e.target.name === 'minus') {
       setPlayerState(player.id, { score: changeScore(player.score - 1) })
     }
 
     if (e.target.name === 'plus') {
-      e.target.children[1].style.transform = 'rotateZ(180deg)'
-
       setPlayerState(player.id, { score: changeScore(player.score + 1) })
     }
 
     setTimeout(() => {
-      if (e.target.children[1]) {
-        e.target.children[1].style.transform = ''
-      }
-      e.target.children[0].style.transform = ''
-    }, 300)
+      e.target.style.transform = ''
+    }, 600)
   }
 
   return (

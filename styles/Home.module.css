@@ -102,7 +102,7 @@
 
 .dartImageAnimation {
   animation: dartImage;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
 }
 
 .scoreButton {
@@ -115,6 +115,7 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  transition: 0.3s;
 }
 
 .scoreButtonSpan {
@@ -125,7 +126,6 @@
   display: block;
   position: absolute;
   align-self: center;
-  transition: 0.3s;
   pointer-events: none;
 }
 
