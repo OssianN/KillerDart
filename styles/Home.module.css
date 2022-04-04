@@ -98,12 +98,12 @@
 
 .dartImage {
   object-fit: contain;
-  filter: invert(1);
+  /* filter: invert(1); */
 }
 
 .dartImageAnimation {
   animation: dartImage;
-  animation-duration: 0.3s;
+  animation-duration: 0.5s;
 }
 
 .scoreButton {
@@ -116,7 +116,6 @@
   border-radius: 5px;
   display: flex;
   justify-content: center;
-  transition: 0.3s;
 }
 
 .scoreButtonSpan {
