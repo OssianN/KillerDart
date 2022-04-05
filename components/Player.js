@@ -1,7 +1,5 @@
-import Image from 'next/image'
-// import dart from '../dart.png'
-import styles from '../styles/Home.module.css'
 import DartSvg from './DartSvg'
+import styles from '../styles/Home.module.css'
 
 const Player = ({ player, setPlayerState }) => {
   const changeScore = newValue => {
@@ -44,6 +42,10 @@ const Player = ({ player, setPlayerState }) => {
     }, 300)
   }
 
+  const transformDart = (score, i) => {
+    return i === score - 1 ? 'scale(1.3)' : 'scale(1)'
+  }
+
   return (
     <li
       className={styles.playerItem}
@@ -73,10 +75,11 @@ const Player = ({ player, setPlayerState }) => {
             return (
               <div className={styles.dartImageContainer} key={i}>
                 <DartSvg
-                  className={`${styles.dartImage} ${
-                    player.score - 1 === i ? styles.dartImageAnimation : ''
-                  }`}
-                  style={{ opacity: player.score <= i ? 0 : 1 }}
+                  className={styles.dartImage}
+                  style={{
+                    opacity: player.score <= i ? 0.2 : 1,
+                    transform: transformDart(player.score, i),
+                  }}
                 />
               </div>
             )
