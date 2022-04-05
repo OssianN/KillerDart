@@ -5,6 +5,7 @@
   padding: 2rem;
   margin: 0 auto;
   max-width: 400px;
+  overflow: hidden;
 }
 
 .form {
@@ -64,7 +65,11 @@
   color: white;
   box-shadow: 0px 5px 5px #00000015;
   border-radius: 5px;
-  transition: 0.5s;
+}
+
+.animateListItem {
+  animation: listItem ease-in-out;
+  animation-duration: 0.5s;
 }
 
 .playerHeader {
@@ -184,5 +189,23 @@
 
   100% {
     transform: rotate(180deg);
+  }
+}
+
+@keyframes listItem {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(0.95);
+  }
+
+  66% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

@@ -3,8 +3,8 @@ import styles from './gameSettings.module.css'
 const index = ({ setPlayers }) => {
   const handleClearStats = () => {
     setPlayers(prev => {
-      return prev.map(players => {
-        return { ...players, score: 0, number: 0, active: false }
+      return prev.map(player => {
+        return { ...player, score: 0, number: '', active: false }
       })
     })
   }
@@ -15,10 +15,16 @@ const index = ({ setPlayers }) => {
 
   return (
     <section className={styles.container}>
-      <button className={`${styles.settingsButton} ${styles.clearButton}`} onClick={handleClearStats}>
+      <button
+        className={`${styles.settingsButton} ${styles.clearButton}`}
+        onClick={handleClearStats}
+      >
         Clear Stats
       </button>
-      <button className={`${styles.settingsButton} ${styles.removeAllButton}`} onClick={handleRemoveAll}>
+      <button
+        className={`${styles.settingsButton} ${styles.removeAllButton}`}
+        onClick={handleRemoveAll}
+      >
         Remove All
       </button>
     </section>

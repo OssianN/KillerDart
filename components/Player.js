@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import DartContainer from './DartContainer'
 import ScoreButton from './ScoreButton'
@@ -6,6 +6,9 @@ import styles from '../styles/Home.module.css'
 
 const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
   const [showRemove, setShowRemove] = useState(false)
+  const [order, setOrder] = useState(player.number * -1)
+  const [animateListItem, setAnimateListItem] = useState(true)
+  const isDead = player.score === 0 && player.active
 
   const setBackgroundOnScore = player => {
     if (player.score === 5) {
@@ -31,16 +34,27 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
     })
   }
 
+  useEffect(() => {
+    setOrder(isDead ? player.number + 100 : player.number * -1)
+  }, [player])
+
+  useEffect(() => {
+    setAnimateListItem(true)
+
+    setTimeout(() => {
+      setAnimateListItem(false)
+    }, 600)
+  }, [isDead])
+
   return (
     <li
-      className={styles.playerItem}
+      className={`${styles.playerItem} ${
+        animateListItem ? styles.animateListItem : ''
+      }`}
       style={{
         background: setBackgroundOnScore(player),
         transform: showRemove ? 'translateX(-250px)' : 'translateX(0)',
-        order:
-          player.score === 0 && player.active
-            ? player.number + 100
-            : player.number * -1,
+        order,
       }}
       {...handlers}
     >

@@ -7,7 +7,7 @@ const Form = ({ setPlayers, setLocalStorage }) => {
   })
 
   const createNewPlayer = name => {
-    return { id: Date.now(), name, score: 0, number: null }
+    return { id: Date.now(), name, score: 0, number: '' }
   }
 
   const handleChange = e => {
