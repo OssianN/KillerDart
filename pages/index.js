@@ -26,7 +26,7 @@ const Home = () => {
     }
   }
 
-  const setPlayerState = (id, value) => {
+  const updatePlayer = (id, value) => {
     const newList = players.map(player => {
       handlePlayerActive(player)
       return player.id === Number(id) ? { ...player, ...value } : player
@@ -38,7 +38,12 @@ const Home = () => {
 
   return (
     <main className={styles.container}>
-      <PlayersList players={players} setPlayerState={setPlayerState} />
+      <PlayersList
+        players={players}
+        updatePlayer={updatePlayer}
+        setPlayers={setPlayers}
+        setLocalStorage={setLocalStorage}
+      />
       <Form setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
       <GameSettings setPlayers={setPlayers} />
     </main>

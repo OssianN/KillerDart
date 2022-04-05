@@ -1,7 +1,12 @@
 import Player from './Player'
 import styles from '../styles/Home.module.css'
 
-const PlayersList = ({ players, setPlayerState }) => {
+const PlayersList = ({
+  players,
+  updatePlayer,
+  setPlayers,
+  setLocalStorage,
+}) => {
   if (!players) {
     return <></>
   }
@@ -12,7 +17,9 @@ const PlayersList = ({ players, setPlayerState }) => {
         <Player
           key={player.id}
           player={player}
-          setPlayerState={setPlayerState}
+          updatePlayer={updatePlayer}
+          setPlayers={setPlayers}
+          setLocalStorage={setLocalStorage}
         />
       ))}
     </ul>
