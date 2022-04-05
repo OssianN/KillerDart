@@ -1,14 +1,12 @@
 .container {
-  position: absolute;
   display: flex;
   gap: 2rem;
   padding: 2rem;
-  bottom: 2rem;
 }
 
 .settingsButton {
   border: 2px solid #95d2ec;
-  color: #47abd8;
+  color: #95d2ec;
   background: none;
   padding: 0.75rem 0;
   width: 6rem;
@@ -18,9 +16,9 @@
 }
 
 .clearButton {
-  background: #47abd8;
+  background: #95d2ec;
   color: white;
-  border-color: #47abd8;
+  border-color: #95d2ec;
 }
 
 /* .removeAllButton {
