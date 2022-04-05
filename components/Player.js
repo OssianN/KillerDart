@@ -27,23 +27,17 @@ const Player = ({ player, setPlayerState }) => {
 
   const handleScoreChange = e => {
     e.stopPropagation()
+
+    const score =
+      e.target.name === 'minus'
+        ? changeScore(player.score - 1)
+        : changeScore(player.score + 1)
+    setPlayerState(player.id, { score })
+
     e.target.classList.add(styles.animateScoreButton)
-
-    if (e.target.name === 'minus') {
-      setPlayerState(player.id, { score: changeScore(player.score - 1) })
-    }
-
-    if (e.target.name === 'plus') {
-      setPlayerState(player.id, { score: changeScore(player.score + 1) })
-    }
-
     setTimeout(() => {
       e.target.classList.remove(styles.animateScoreButton)
     }, 300)
-  }
-
-  const transformDart = (score, i) => {
-    return i === score - 1 ? 'scale(1.3)' : 'scale(1)'
   }
 
   return (
@@ -78,7 +72,10 @@ const Player = ({ player, setPlayerState }) => {
                   className={styles.dartImage}
                   style={{
                     opacity: player.score <= i ? 0.2 : 1,
-                    transform: transformDart(player.score, i),
+                    transform:
+                      player.score > i
+                        ? 'translateY(10px) translateX(-10px)'
+                        : '',
                   }}
                 />
               </div>
