@@ -43,7 +43,13 @@ const Player = ({ player, setPlayerState }) => {
   return (
     <li
       className={styles.playerItem}
-      style={{ background: setBackgroundOnScore(player) }}
+      style={{
+        background: setBackgroundOnScore(player),
+        order:
+          player.score === 0 && player.active
+            ? player.number + 100
+            : player.number,
+      }}
     >
       <header className={styles.playerHeader}>
         <h3 className={styles.playerName}>{player.name}</h3>

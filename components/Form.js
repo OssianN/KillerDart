@@ -19,6 +19,10 @@ const Form = ({ setPlayers, setLocalStorage }) => {
   const handleSubmit = e => {
     e.preventDefault()
 
+    if (!input.name) {
+      return
+    }
+
     const newPlayer = createNewPlayer(input.name)
     setPlayers(prev => {
       setLocalStorage([...prev, newPlayer])
