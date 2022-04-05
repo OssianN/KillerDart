@@ -71,14 +71,14 @@ const Player = ({ player, setPlayerState }) => {
           {new Array(5).fill(0).map((_, i) => {
             return (
               <div
-                className={`${styles.dartImageContainer} ${
-                  player.score - 1 === i ? styles.dartImageAnimation : ''
-                }`}
+                className={styles.dartImageContainer}
                 key={i}
               >
                 <img
-                  className={styles.dartImage}
-                  style={{ opacity: player.score <= i ? 0.1 : 1 }}
+                  className={`${styles.dartImage} ${
+                    player.score - 1 === i ? styles.dartImageAnimation : ''
+                  }`}
+                  style={{ opacity: player.score <= i ? 0.2 : 1 }}
                   src="/dart.svg"
                   alt="dart"
                 />
