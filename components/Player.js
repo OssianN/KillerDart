@@ -76,7 +76,7 @@ const Player = ({ player, setPlayerState }) => {
                   className={`${styles.dartImage} ${
                     player.score - 1 === i ? styles.dartImageAnimation : ''
                   }`}
-                  style={{ opacity: player.score <= i ? 0.2 : 1 }}
+                  style={{ opacity: player.score <= i ? 0 : 1 }}
                 />
               </div>
             )
