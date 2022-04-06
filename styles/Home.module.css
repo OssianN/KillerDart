@@ -68,8 +68,8 @@
 }
 
 .animateListItem {
-  animation: listItem ease-in-out;
-  animation-duration: 0.4s;
+  animation: listItem ease-out;
+  animation-duration: 0.5s;
 }
 
 .playerHeader {
@@ -194,14 +194,6 @@
 
 @keyframes listItem {
   0% {
-    transform: scale(1);
-  }
-
-  33% {
-    transform: scale(0.95);
-  }
-
-  66% {
     transform: scale(1.05);
   }
 
