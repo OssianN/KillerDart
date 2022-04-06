@@ -45,7 +45,7 @@ const Home = () => {
         setLocalStorage={setLocalStorage}
       />
       <Form setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
-      <GameSettings setPlayers={setPlayers} />
+      <GameSettings setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
     </main>
   )
 }

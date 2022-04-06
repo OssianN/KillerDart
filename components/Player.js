@@ -6,9 +6,7 @@ import styles from '../styles/Home.module.css'
 
 const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
   const [showRemove, setShowRemove] = useState(false)
-  const [order, setOrder] = useState(player.number * -1)
-  const [animateListItem, setAnimateListItem] = useState(true)
-  const isDead = player.score === 0 && player.active
+  const [animateListItem, setAnimateListItem] = useState(false)
 
   const setBackgroundOnScore = player => {
     if (player.score === 5) {
@@ -35,16 +33,25 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
   }
 
   useEffect(() => {
-    setOrder(isDead ? player.number + 100 : player.number * -1)
-  }, [player])
+    if (player.score === 0 && player.active) {
+      updatePlayer(player.id, { isDead: true })
+    }
+
+    if (player.score > 0) {
+      updatePlayer(player.id, { isDead: false })
+    }
+  }, [player.score, player.active])
 
   useEffect(() => {
-    setAnimateListItem(true)
+    console.log(player.isDead)
+    if (player.isDead) {
+      setAnimateListItem(true)
 
-    setTimeout(() => {
-      setAnimateListItem(false)
-    }, 600)
-  }, [isDead])
+      setTimeout(() => {
+        setAnimateListItem(false)
+      }, 600)
+    }
+  }, [player.isDead])
 
   return (
     <li
@@ -54,14 +61,14 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
       style={{
         background: setBackgroundOnScore(player),
         transform: showRemove ? 'translateX(-250px)' : 'translateX(0)',
-        order,
+        order: player.number * -1,
       }}
       {...handlers}
     >
       <header
         className={styles.playerHeader}
         style={{
-          opacity: isDead ? 0.3 : 1,
+          opacity: player.isDead ? 0.3 : 1,
         }}
       >
         <h3 className={styles.playerName}>{player.name}</h3>
@@ -79,7 +86,7 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
       <div
         className={styles.playersContent}
         style={{
-          opacity: isDead ? 0.3 : 1,
+          opacity: player.isDead ? 0.3 : 1,
         }}
       >
         <ScoreButton
