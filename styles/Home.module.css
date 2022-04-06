@@ -69,7 +69,7 @@
 
 .animateListItem {
   animation: listItem ease-in-out;
-  animation-duration: 0.5s;
+  animation-duration: 0.4s;
 }
 
 .playerHeader {
