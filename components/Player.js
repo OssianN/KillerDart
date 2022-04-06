@@ -100,7 +100,7 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
       <button
         className={styles.removePlayerButton}
         style={{
-          transform: showRemove ? 'translateX(250px)' : 'translateX(220px)',
+          transform: showRemove ? 'translateX(250px)' : 'translateX(300px)',
           opacity: !showRemove ? '0' : '1',
         }}
         onClick={handleRemovePlayer}
