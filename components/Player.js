@@ -58,7 +58,12 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
       }}
       {...handlers}
     >
-      <header className={styles.playerHeader}>
+      <header
+        className={styles.playerHeader}
+        style={{
+          opacity: isDead ? 0.3 : 1,
+        }}
+      >
         <h3 className={styles.playerName}>{player.name}</h3>
         <input
           className={styles.playerTargetInput}
@@ -71,7 +76,12 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
           max="100"
         />
       </header>
-      <div className={styles.playersContent}>
+      <div
+        className={styles.playersContent}
+        style={{
+          opacity: isDead ? 0.3 : 1,
+        }}
+      >
         <ScoreButton
           player={player}
           operator={'minus'}
