@@ -76,7 +76,7 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
           className={styles.playerTargetInput}
           name="number"
           type="number"
-          placeholder="-"
+          placeholder="--"
           onChange={e => updatePlayer(player.id, { number: e.target.value })}
           value={player.number}
           min="0"
