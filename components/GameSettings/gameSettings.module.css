@@ -5,8 +5,7 @@
 }
 
 .settingsButton {
-  border: 2px solid #a1e3ff;
-  color: #a1e3ff;
+  border: none;
   background: none;
   padding: 0.75rem 0;
   width: 6rem;
@@ -17,13 +16,16 @@
 }
 
 .clearButton {
-  background: #a1e3ff;
-  color: white;
-  border-color: #a1e3ff;
+  background: transparent;
+  color: #a1e3ff;
+  border: 2px solid #a1e3ff;
 }
 
-/* .removeAllButton {
-} */
+.removeAllButton {
+  background: white;
+  color: #ff4242;
+  border: 2px solid #ff4242;
+}
 
 @media (hover: hover) {
   .settingsButton:hover {

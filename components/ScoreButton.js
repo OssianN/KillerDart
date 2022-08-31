@@ -21,7 +21,11 @@ const ScoreButton = ({ player, operator, updatePlayer }) => {
       operator === 'minus'
         ? changeScore(player.score - 1)
         : changeScore(player.score + 1)
-    updatePlayer(player.id, { score })
+
+    updatePlayer(player.id, {
+      score,
+      isDead: score === 0 && player.active,
+    })
 
     e.target.classList.add(styles.animateScoreButton)
     setTimeout(() => {

@@ -1,24 +1,6 @@
 import styles from './gameSettings.module.css'
 
-const index = ({ setPlayers, setLocalStorage }) => {
-  const handleClearStats = () => {
-    setPlayers(prev => {
-      const newList = prev.map(player => {
-        return { ...player, score: 0, number: '', active: false, isDead: false }
-      })
-      setLocalStorage(newList)
-      return newList
-    })
-  }
-
-  const handleRemoveAll = () => {
-    setLocalStorage([])
-    setPlayers(prev => {
-      console.log(prev)
-      return []
-    })
-  }
-
+const index = ({ handleClearStats, handleRemoveAll }) => {
   return (
     <section className={styles.container}>
       <button

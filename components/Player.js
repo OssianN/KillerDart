@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { useSwipeable } from 'react-swipeable'
 import DartContainer from './DartContainer'
 import ScoreButton from './ScoreButton'
@@ -13,7 +13,7 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
       return '#FF4242'
     }
 
-    if (player.score === 0 && player.active) {
+    if (player.isDead) {
       return '#47abd8'
     }
   }
@@ -32,26 +32,21 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
     })
   }
 
-  useEffect(() => {
-    if (player.score === 0 && player.active) {
-      updatePlayer(player.id, { isDead: true })
+  const handlePlayerNumber = ({ target: { value } }) => {
+    if (/^[0-9]*$/gi.test(value)) {
+      updatePlayer(player.id, { number: value })
     }
+  }
 
-    if (player.score > 0) {
-      updatePlayer(player.id, { isDead: false })
-    }
-  }, [player.score, player.active])
-
-  useEffect(() => {
-    console.log(player.isDead)
-    if (player.isDead) {
+  useLayoutEffect(() => {
+    if (player.isDead || player.score === 5) {
       setAnimateListItem(true)
 
       setTimeout(() => {
         setAnimateListItem(false)
       }, 600)
     }
-  }, [player.isDead])
+  }, [player.isDead, player.score])
 
   return (
     <li
@@ -74,13 +69,11 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
         <h3 className={styles.playerName}>{player.name}</h3>
         <input
           className={styles.playerTargetInput}
-          name="number"
-          type="number"
-          placeholder="-"
-          onChange={e => updatePlayer(player.id, { number: e.target.value })}
+          type="numeric"
+          pattern="[0-9]*"
+          placeholder="--"
+          onChange={handlePlayerNumber}
           value={player.number}
-          min="0"
-          max="100"
         />
       </header>
       <div

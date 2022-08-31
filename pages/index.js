@@ -4,6 +4,15 @@ import Form from '../components/Form'
 import PlayersList from '../components/PlayersList'
 import styles from '../styles/Home.module.css'
 
+const resetPlayerStats = players =>
+  players.map(player => ({
+    ...player,
+    score: 0,
+    number: '',
+    active: false,
+    isDead: false,
+  }))
+
 const Home = () => {
   const [players, setPlayers] = useState([])
 
@@ -11,13 +20,23 @@ const Home = () => {
     localStorage.setItem('players', JSON.stringify(players))
   }
 
-  useEffect(() => {
-    const storage = localStorage.getItem('players')
-    const localList = JSON.parse(storage)
+  const handleClearStats = () => {
+    const newList = resetPlayerStats(players)
 
-    if (storage) {
-      setPlayers(localList)
-    }
+    setLocalStorage(newList)
+    setPlayers(newList)
+  }
+
+  const handleRemoveAll = () => {
+    setLocalStorage([])
+    setPlayers([])
+  }
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const localList = JSON.parse(localStorage.getItem('players')) ?? []
+    setPlayers(localList)
   }, [])
 
   const handlePlayerActive = player => {
@@ -38,6 +57,10 @@ const Home = () => {
 
   return (
     <main className={styles.container}>
+      <GameSettings
+        handleClearStats={handleClearStats}
+        handleRemoveAll={handleRemoveAll}
+      />
       <PlayersList
         players={players}
         updatePlayer={updatePlayer}
@@ -45,7 +68,6 @@ const Home = () => {
         setLocalStorage={setLocalStorage}
       />
       <Form setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
-      <GameSettings setPlayers={setPlayers} setLocalStorage={setLocalStorage} />
     </main>
   )
 }
