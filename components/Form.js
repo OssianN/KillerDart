@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-const Form = ({ setPlayers, setLocalStorage }) => {
+const FormComponent = ({ setPlayers, setLocalStorage }) => {
   const [input, setInput] = useState({
     name: '',
   })
 
   const createNewPlayer = name => {
-    return { id: Date.now(), name, score: 0, number: '' }
+    return { id: Date.now(), name, score: 0, number: '', wins: 0 }
   }
 
   const handleChange = e => {
@@ -40,12 +40,13 @@ const Form = ({ setPlayers, setLocalStorage }) => {
         value={input.name}
         onChange={handleChange}
         placeholder="add player"
+        maxLength={12}
       />
       <button className={styles.submitButton} type="submit">
-        &#8594;
+        &#43;
       </button>
     </form>
   )
 }
 
-export default Form
+export default FormComponent

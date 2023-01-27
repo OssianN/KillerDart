@@ -4,13 +4,14 @@ import Form from '../components/Form'
 import PlayersList from '../components/PlayersList'
 import styles from '../styles/Home.module.css'
 
-const resetPlayerStats = players =>
+const resetPlayerStats = (players, winnerId) =>
   players.map(player => ({
     ...player,
     score: 0,
     number: '',
     active: false,
     isDead: false,
+    wins: player.id === winnerId ? player.wins + 1 : player.wins,
   }))
 
 const Home = () => {
@@ -21,7 +22,8 @@ const Home = () => {
   }
 
   const handleClearStats = () => {
-    const newList = resetPlayerStats(players)
+    const winnerId = isWinner(players)
+    const newList = resetPlayerStats(players, winnerId)
 
     setLocalStorage(newList)
     setPlayers(newList)
@@ -43,6 +45,11 @@ const Home = () => {
     if (player.score > 0) {
       player.active = true
     }
+  }
+
+  const isWinner = players => {
+    const winners = players.filter(player => !player.isDead)
+    return winners.length === 1 ? winners[0].id : null
   }
 
   const updatePlayer = (id, value) => {

@@ -33,9 +33,11 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
   }
 
   const handlePlayerNumber = ({ target: { value } }) => {
-    if (/^[0-9]*$/gi.test(value)) {
-      updatePlayer(player.id, { number: value })
+    if (!/^[0-9]*$/gi.test(value)) {
+      return
     }
+
+    updatePlayer(player.id, { number: value })
   }
 
   useLayoutEffect(() => {
@@ -96,6 +98,7 @@ const Player = ({ player, updatePlayer, setPlayers, setLocalStorage }) => {
           updatePlayer={updatePlayer}
         />
       </div>
+      <p className={styles.playerWinsParagraph}>W: {player.wins}</p>
 
       <button
         className={styles.removePlayerButton}

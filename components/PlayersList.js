@@ -8,7 +8,7 @@ const PlayersList = ({
   setLocalStorage,
 }) => {
   if (!players) {
-    return <></>
+    return null
   }
 
   return (

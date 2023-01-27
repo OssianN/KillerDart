@@ -7,13 +7,7 @@ const index = ({ handleClearStats, handleRemoveAll }) => {
         className={`${styles.settingsButton} ${styles.clearButton}`}
         onClick={handleClearStats}
       >
-        Clear Stats
-      </button>
-      <button
-        className={`${styles.settingsButton} ${styles.removeAllButton}`}
-        onClick={handleRemoveAll}
-      >
-        Remove All
+        New round
       </button>
     </section>
   )
