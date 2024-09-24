@@ -1,6 +1,6 @@
-import styles from './gameSettings.module.css'
+import styles from './gameSettings.module.css';
 
-const index = ({ handleClearStats, handleRemoveAll }) => {
+const index = ({ handleClearStats }) => {
   return (
     <section className={styles.container}>
       <button
@@ -10,7 +10,7 @@ const index = ({ handleClearStats, handleRemoveAll }) => {
         New round
       </button>
     </section>
-  )
-}
+  );
+};
 
-export default index
+export default index;

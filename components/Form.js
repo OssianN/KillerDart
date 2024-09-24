@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import styles from '../styles/Home.module.css'
+import { useState } from 'react';
+import styles from '../styles/Home.module.css';
 
 const FormComponent = ({ setPlayers, setLocalStorage }) => {
   const [input, setInput] = useState({
     name: '',
-  })
+  });
 
   const createNewPlayer = name => {
-    return { id: Date.now(), name, score: 0, number: '', wins: 0 }
-  }
+    return { id: Date.now(), name, score: 0, number: '', wins: 0 };
+  };
 
   const handleChange = e => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
 
-    setInput(prev => ({ ...prev, [name]: value }))
-  }
+    setInput(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!input.name) {
-      return
+      return;
     }
 
-    const newPlayer = createNewPlayer(input.name)
+    const newPlayer = createNewPlayer(input.name);
     setPlayers(prev => {
-      setLocalStorage([...prev, newPlayer])
-      return [...prev, newPlayer]
-    })
-    setInput({ name: '' })
-  }
+      setLocalStorage([...prev, newPlayer]);
+      return [...prev, newPlayer];
+    });
+    setInput({ name: '' });
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -39,14 +39,14 @@ const FormComponent = ({ setPlayers, setLocalStorage }) => {
         type="text"
         value={input.name}
         onChange={handleChange}
-        placeholder="add player"
+        placeholder="Add player..."
         maxLength={12}
       />
       <button className={styles.submitButton} type="submit">
         &#43;
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default FormComponent
+export default FormComponent;
